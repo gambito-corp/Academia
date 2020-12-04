@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [InicioController::class, 'index'])->name('index');
 
+//Cursos
+Route::get('cursos',function (){
+    return 'aqui se mostraran los cursos';
+})->name('courses.index');
+
+Route::get('cursos/{course}',function ($course){
+    return 'aqui se mostraran La informacion del curso: '.$course;
+})->name('courses.show');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

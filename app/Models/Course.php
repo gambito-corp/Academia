@@ -11,6 +11,22 @@ class Course extends Model
 
     protected $guarded = ['id', 'status'];
 
+    protected $withCount = ['Estudiante', 'Reviews'];
+
+    public function getRatingAttribute()
+    {
+        $return = 5;
+        if ($this->reviews_count){
+            $return = round($this->Reviews->avg('rating'), 1);
+        }
+        return $return;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
