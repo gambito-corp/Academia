@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InicioController;
+use App\Http\Livewire\CourseStatus;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -17,14 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [InicioController::class, 'index'])->name('index');
 
-//Cursos
-Route::get('cursos',function (){
-    return 'aqui se mostraran los cursos';
-})->name('courses.index');
 
-Route::get('cursos/{course}',function ($course){
-    return 'aqui se mostraran La informacion del curso: '.$course;
-})->name('courses.show');
+//Cursos front
+Route::get('cursos',[CourseController::class, 'index'])->name('courses.index');
+Route::get('cursos/{course}',[CourseController::class, 'show'])->name('courses.show');
+Route::Post('cursos/{course}/erolled',[CourseController::class, 'enrolled'])->name('courses.enrolled')->middleware('auth');
+Route::get('curso/{course}',CourseStatus::class)->name('courses.status')->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

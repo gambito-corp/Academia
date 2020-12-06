@@ -6,14 +6,17 @@ use Illuminate\View\Component;
 
 class cursos extends Component
 {
+    public $curso;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($curso)
     {
-        //
+
+        $this->curso = $curso;
     }
 
     /**

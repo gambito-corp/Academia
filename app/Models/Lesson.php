@@ -11,6 +11,12 @@ class Lesson extends Model
 
     protected $guarded = ['id'];
 
+    //Atributos Personalizados
+    public function getCompleteAttribute()
+    {
+        return $this->Usuarios->contains(auth()->id());
+    }
+
     //relacion 1 a 1
     public function Descripcion()
     {
