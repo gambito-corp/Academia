@@ -6,6 +6,9 @@
         ['name'  => 'Cursos',
         'route' =>  route('courses.index'),
         'active'=> request()->routeIs('courses.*')],
+        ['name'  => 'ejemplo 1',
+        'route' =>  route('ejemplo'),
+        'active'=> request()->routeIs('ejemplo')],
     ];
 @endphp
 
@@ -56,11 +59,15 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            Administrar Cuenta
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Profile') }}
+                            Perfil
+                        </x-jet-dropdown-link>
+
+                        <x-jet-dropdown-link href="{{ route('instructor.course.index') }}">
+                            Instructor
                         </x-jet-dropdown-link>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -109,7 +116,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                Cerrar Sesion
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>
@@ -162,7 +169,10 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
+                        Perfil
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('instructor.course.index') }}" :active="request()->routeIs('instructor.course.index')">
+                        Instructor
                     </x-jet-responsive-nav-link>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -178,7 +188,7 @@
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                            {{ __('Logout') }}
+                            Cerrar Sesion
                         </x-jet-responsive-nav-link>
                     </form>
 

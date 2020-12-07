@@ -1,7 +1,7 @@
 <div>
-    <article class="card">
+    <article class="card items-stretch">
         <img src="{{Storage::url($curso->Imagen->url)}}" alt="" class="h-36 w-full object-cover">
-        <div class="card-body">
+        <div class="card-body self-stretch">
             <h1 class="card-title">{{Str::limit($curso->title, 40)}}</h1>
             <p class="text-gray-500 text-sm mb-2">Prof: {{$curso->Profesor->name}}</p>
             <div class="flex">

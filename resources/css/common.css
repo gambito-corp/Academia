@@ -38,3 +38,9 @@
         @apply px-8;
     }
 }
+
+/*small screen (sm) @media(min-width: 640px){}*/
+/*Medium screen (md) @media(min-width: 768px){}*/
+/*Large screen (lg) @media(min-width: 1024px){}*/
+/*Extra Large screen (xl) @media(min-width: 1280px){}*/
+
