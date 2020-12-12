@@ -18,8 +18,5 @@ mix.js('resources/js/app.js', 'public/js')
     ])
     .webpackConfig(require('./webpack.config'))
     .browserSync({
-    open: 'external',
-    host: 'http://new-cepecij.test',
-    proxy: 'http://new-cepecij.test',
-    files: ['resources/views/**/*.php', 'app/**/*.php', 'routes/**/*.php', 'public/js/*.js', 'public/css/*.css']
+    proxy: 'new-cepecij.test'
 })

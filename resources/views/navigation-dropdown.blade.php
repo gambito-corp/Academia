@@ -59,6 +59,14 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
+                            Administrar Sitio
+                        </div>
+
+                        <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                            Panel De Control
+                        </x-jet-dropdown-link>
+                        <!-- Account Management -->
+                        <div class="block px-4 py-2 text-xs text-gray-400">
                             Administrar Cuenta
                         </div>
 

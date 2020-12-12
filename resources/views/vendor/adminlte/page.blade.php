@@ -32,6 +32,7 @@
         @endif
 
         {{-- Content Wrapper --}}
+        holamu
         <div class="content-wrapper {{ config('adminlte.classes_content_wrapper') ?? '' }}">
 
             {{-- Content Header --}}
