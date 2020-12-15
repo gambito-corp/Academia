@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\Level;
 use Livewire\WithPagination;
 
-class CourseIndex extends Component
+class CoursesIndex extends Component
 {
     use WithPagination;
     public $category_id;
@@ -23,7 +23,7 @@ class CourseIndex extends Component
             ->level($this->level_id)
             ->latest('id')
             ->paginate(8);
-        return view('livewire.course-index', compact('courses', 'categories', 'levels'));
+        return view('livewire.courses-index', compact('courses', 'categories', 'levels'));
     }
 
     public function resetFilters()

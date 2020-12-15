@@ -27,7 +27,7 @@
                 @forelse($roles as $rol)
                     <tr>
                         <td>{{$rol->id}}</td>
-                        <td>{{$rol->name}}</td>
+                        <td><a href="{{route('admin.roles.show', $rol)}}">{{$rol->name}}</a></td>
                         <td class="d-inline-block">
 {{--                            @dump($rol)--}}
                             <a class="btn btn-outline-info btn-sm d-inline-block mr-2" href="{{route('admin.roles.edit', $rol)}}"><i class="fas fa-fw fa-edit"></i></a>

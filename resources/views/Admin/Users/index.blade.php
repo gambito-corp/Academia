@@ -8,7 +8,7 @@
 
 @section('content')
     @include('admin.includes._alert')
-    @livewire('admin-user')
+    <livewire:admin.users-index/>
 @stop
 
 @push('css')

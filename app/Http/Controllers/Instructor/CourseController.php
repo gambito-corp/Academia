@@ -1,23 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use App\Models\Course;
 
-class UserController extends Controller
+class CourseController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('can:Listar Usuarios')->only('index');
-        $this->middleware('can:Ver Usuarios')->only('show');
-        $this->middleware('can:Crear Usuarios')->only('create', 'store');
-        $this->middleware('can:Editar Usuarios')->only('edit', 'update');
-        $this->middleware('can:Eliminar Usuarios')->only('destroy');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('Admin.Users.index');
+        return view('Instructor.course.index');
     }
 
     /**
@@ -35,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('Admin.Users.create');
+        return view('Instructor.course.create');
     }
 
     /**
@@ -46,7 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -55,9 +45,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $usuario)
+    public function show(Course $course)
     {
-        return view('Admin.Users.show', compact('usuario'));
+        return view('Instructor.course.show', compact('course'));
     }
 
     /**
@@ -66,10 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $usuario)
+    public function edit(Course $course)
     {
-        $roles = Role::all();
-        return view('Admin.Users.edit', compact('usuario', 'roles'));
+        return view('Instructor.course.edit', compact('course'));
     }
 
     /**
@@ -79,15 +68,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $usuario)
+    public function update(Request $request, Course $course)
     {
-        $usuario->roles()->sync($request->roles);
-
-        return redirect()->route('admin.users.edit', $usuario)->with([
-            'clave' => 'Exito',
-            'mensaje' => 'El Usuario se Actualizo Satisfactoriamente',
-            'clase'=>'alert alert-success'
-        ]);
+        //
     }
 
     /**
@@ -96,7 +79,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $usuario)
+    public function destroy(Course $course)
     {
         //
     }

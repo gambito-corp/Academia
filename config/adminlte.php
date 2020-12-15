@@ -242,21 +242,25 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Panel De Control',
+            'text'          => 'Panel De Control',
             'route'         => 'admin.home',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'icon'          => 'fas fa-fw fa-tachometer-alt',
+            'active'        => ['admin/home'],
+            'can'           => 'Ver Dashboard',
         ],
         [
-            'text'        => 'Lista de Roles',
+            'text'          => 'Lista de Roles',
             'route'         => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
+            'icon'          => 'fas fa-fw fa-users-cog',
             'active'        => ['admin/roles*'],
+            'can'           => 'Listar Roles',
         ],
         [
-            'text'        => 'Lista de Usuarios',
+            'text'          => 'Lista de Usuarios',
             'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-            'active'        => ['admin/usuarios*']
+            'icon'          => 'fas fa-fw fa-users',
+            'active'        => ['admin/usuarios*'],
+            'can'           => 'Listar Usuarios',
         ],
         ['header' => 'account_settings'],
         [

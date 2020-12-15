@@ -57,14 +57,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+                    @can('Ver Dashboard')
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             Administrar Sitio
                         </div>
-
                         <x-jet-dropdown-link href="{{ route('admin.home') }}">
                             Panel De Control
                         </x-jet-dropdown-link>
+                    @endcan
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             Administrar Cuenta
@@ -73,10 +74,11 @@
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
                             Perfil
                         </x-jet-dropdown-link>
-
-                        <x-jet-dropdown-link href="{{ route('instructor.course.index') }}">
-                            Instructor
-                        </x-jet-dropdown-link>
+                        @can('Leer Curso')
+                            <x-jet-dropdown-link href="{{ route('instructor.course.index') }}">
+                                Instructor
+                            </x-jet-dropdown-link>
+                        @endcan
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -175,13 +177,27 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
+                @can('Ver Dashboard')
                     <!-- Account Management -->
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            Administrar Sitio
+                        </div>
+                        <x-jet-responsive-nav-link href="{{ route('admin.home') }}">
+                            Panel De Control
+                        </x-jet-responsive-nav-link>
+                @endcan
+                    <!-- Account Management -->
+                    <div class="block px-4 py-2 text-xs text-gray-400">
+                        Administrar Cuenta
+                    </div>
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         Perfil
                     </x-jet-responsive-nav-link>
+                    @can('Leer Curso')
                     <x-jet-responsive-nav-link href="{{ route('instructor.course.index') }}" :active="request()->routeIs('instructor.course.index')">
                         Instructor
                     </x-jet-responsive-nav-link>
+                    @endcan
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">

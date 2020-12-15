@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-{{--        <a href="{{route('admin.users.create')}}" class="btn btn-success"> Crear un Usuario Mas </a>--}}
+        {{--        <a href="{{route('admin.users.create')}}" class="btn btn-success"> Crear un Usuario Mas </a>--}}
         <input type="text" class="form-control w-100 mt-3" placeholder="Escriba un nombre" wire:model="search" wire:keydown="LimiarPage">
     </div>
     <div class="card-body">

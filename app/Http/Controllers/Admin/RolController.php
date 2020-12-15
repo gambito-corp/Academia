@@ -4,11 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use App\Models\Role;
+use App\Models\Permission;
 
 class RolController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:Listar Roles')->only('index');
+        $this->middleware('can:Ver Roles')->only('show');
+        $this->middleware('can:Crear Roles')->only('create', 'store');
+        $this->middleware('can:Editar Roles')->only('edit', 'update');
+        $this->middleware('can:Borrar Roles')->only('delete');
+        $this->middleware('can:Eliminar Roles')->only('destroy');
+    }
 
     public function index()
     {
@@ -46,7 +55,13 @@ class RolController extends Controller
 
     public function show(Role $role)
     {
-        return view('Admin.Roles.show', compact('role'));
+        // get previous role id
+        $previo = Role::where('id', '<', $role->id)->first();
+
+        // get next role id
+        $next = Role::where('id', '>', $role->id)->first();
+
+        return view('Admin.Roles.show', compact('role', 'previo', 'next'));
     }
 
 
@@ -74,6 +89,16 @@ class RolController extends Controller
 
     }
 
+    public function delete(Role $role)
+    {
+        $role->delete();
+        return redirect()->route('admin.roles.index')->with([
+            'clave' => 'Exito',
+            'mensaje' => 'El Rol se Dado de baja Satisfactoriamente',
+            'clase'=>'alert alert-warning'
+        ]);
+    }
+
 
     public function destroy(Role $role)
     {
@@ -81,7 +106,7 @@ class RolController extends Controller
         return redirect()->route('admin.roles.index')->with([
             'clave' => 'Exito',
             'mensaje' => 'El Rol se Eliminado Satisfactoriamente',
-            'clase'=>'alert alert-warning'
+            'clase'=>'alert alert-danger'
         ]);
     }
 }
