@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'reviews';
+
     protected $guarded = ['id'];
 
     //relacion 1 a muchos Inversa

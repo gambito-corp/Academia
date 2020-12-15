@@ -9,6 +9,8 @@ class Price extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'prices';
+
     protected $guarded = ['id'];
 
 

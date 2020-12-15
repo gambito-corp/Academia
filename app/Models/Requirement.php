@@ -9,6 +9,8 @@ class Requirement extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'requirements';
+
     protected $guarded = ['id'];
 
 

@@ -17,6 +17,8 @@ class Course extends Model
     const REVISION = 2;
     const PUBLICADO = 3;
 
+    public static $tabla = 'courses';
+
     public function getRatingAttribute()
     {
         $return = 5;

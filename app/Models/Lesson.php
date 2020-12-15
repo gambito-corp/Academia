@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     use HasFactory;
+    public static $tabla = 'lessons';
+
 
     protected $guarded = ['id'];
 

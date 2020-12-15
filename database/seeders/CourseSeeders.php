@@ -22,9 +22,12 @@ class CourseSeeders extends Seeder
     public function run()
     {
         $course = course::factory(40)->create();
-
         foreach($course as $curso){
-            Image::factory(1)->create([
+            Image::factory()->Direccion([
+                'carpeta' => 'cursos',
+                'ancho' => '640',
+                'alto' => '480'
+            ])->create([
                 'imageable_id' => $curso->id,
                 'imageable_type' => Course::class
             ]);
@@ -45,12 +48,11 @@ class CourseSeeders extends Seeder
                     'section_id' => $section->id
                 ]);
                 foreach ($lessons as $lesson){
-                    Description::factory(1)->create([
+                    Description::factory()->create([
                         'lesson_id' => $lesson->id
                     ]);
                 }
             }
-
         }
     }
 }

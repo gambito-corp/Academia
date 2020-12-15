@@ -9,8 +9,11 @@ class Image extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'images';
+
     protected $guarded = ['id'];
 
+    //relacion Polimorfica
     public function imageable()
     {
         return $this->morphTo();

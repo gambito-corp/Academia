@@ -20,6 +20,8 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
+    public static $tabla = 'users';
+
     protected $fillable = [
         'name',
         'email',
@@ -63,6 +65,10 @@ class User extends Authenticatable
     public function Reacciones()
     {
         return $this->hasMany(Reaction::class);
+    }
+    public function Posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     //Relaciones Muchos a Muchos

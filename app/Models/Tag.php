@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryBlogs extends Model
+class Tag extends Model
 {
     use HasFactory;
 
-    public static $tabla = 'category_blogs';
+    public static $tabla = 'tags';
 
+    //Relacion Muchos a Muchos
     public function Posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class);
     }
 }

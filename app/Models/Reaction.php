@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reaction extends Model
 {
     use HasFactory;
+    public static $tabla = 'reactions';
+
 
     protected $guarded = ['id'];
 

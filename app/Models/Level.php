@@ -9,6 +9,8 @@ class Level extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'levels';
+
 
     protected $guarded = ['id'];
 

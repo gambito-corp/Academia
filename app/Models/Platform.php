@@ -9,6 +9,7 @@ class Platform extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'platforms';
 
     protected $guarded = ['id'];
 

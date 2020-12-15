@@ -9,6 +9,8 @@ class Description extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'descriptions';
+
     protected $guarded = ['id'];
 
     //relacion 1 a 1 inversa

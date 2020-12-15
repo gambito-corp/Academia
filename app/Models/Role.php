@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Role extends \Spatie\Permission\Models\Role
 {
     use SoftDeletes;
+    use HasFactory;
+
+    public static $tabla = 'roles';
 }

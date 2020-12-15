@@ -9,6 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'comments';
+
     protected $guarded = ['id'];
 
     public function commnetable()

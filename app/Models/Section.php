@@ -9,6 +9,8 @@ class Section extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'sections';
+
     protected $guarded = ['id'];
 
     //relaciones 1 a Muchos

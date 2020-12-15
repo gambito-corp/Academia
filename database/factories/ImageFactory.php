@@ -22,9 +22,18 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'url' => 'cursos/'. $this->faker->image('public/storage/cursos', 640, 480, null, false),
+            'url' => null,
             'imageable_id' => null,
-            'imageable_type' => null
+            'imageable_type' => null,
         ];
+    }
+
+    public function Direccion(array $mods)
+    {
+        return $this->state(function (array $attributes) use($mods) {
+            return [
+                'url' => ''.$mods['carpeta'].'/'. $this->faker->image('public/storage/'.$mods['carpeta'].'', $mods['ancho'], $mods['alto'], null, false),
+            ];
+        });
     }
 }

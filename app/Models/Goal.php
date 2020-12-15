@@ -9,6 +9,8 @@ class Goal extends Model
 {
     use HasFactory;
 
+    public static $tabla = 'goals';
+
     protected $guarded = ['id'];
 
 
