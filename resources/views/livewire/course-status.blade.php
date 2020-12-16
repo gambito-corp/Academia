@@ -1,17 +1,26 @@
 <div class="mt-8">
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
+            @if($current->iframe != null)
             <div class="embed-responsive">
                 {!! $current->iframe !!}
             </div>
             {{$current->name}}
-
             @isset($current->Descripcion)
-                <div class="text-gray-600">
-                    {{$current->Descripcion->name}}
-                </div>
+            <div class="text-gray-600">
+                {{$current->Descripcion->name}}
+            </div>
             @endisset
-
+            @elseif($current->iframe == null)
+            @isset($current->Descripcion)
+            <div class="text-gray-600">
+                {{$current->Descripcion->name}}
+            </div>
+            @endisset
+            <h1>Hola Mundo</h1>
+            @else
+            @endif
+            
             <div class="flex items-center mt-4 cursor-pointer" wire:click="complete()">
                 @if($current->complete)
                     <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
